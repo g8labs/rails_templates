@@ -1,0 +1,15 @@
+set :user, 'ubuntu'
+
+set :use_sudo, false
+
+set :ssh_options, port: 22, forward_agent: true
+
+set :rails_env, 'production'
+
+set :branch, 'production'
+
+set :nginx_domains, '<%= @nginx_domains %>'
+
+set :disallow_pushing, true
+
+server '<%= @server_name %>', user: fetch(:user), roles: %w(web app db)
